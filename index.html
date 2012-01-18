@@ -1,0 +1,72 @@
+<html>
+<head>
+  <title>Backbone</title>
+
+  <meta charset="utf-8">
+
+  <script type='text/javascript' src='javascripts/jquery.js'></script>
+  <script type='text/javascript' src='javascripts/json2.js'></script>
+  <script type='text/javascript' src='javascripts/underscore.js'></script>
+  <script type='text/javascript' src='javascripts/backbone.js'></script>
+
+  <script type='text/javascript' src='javascripts/models/todo.js'></script>
+  <script type='text/javascript' src='javascripts/collections/todos.js'></script>
+  <script type='text/javascript' src='javascripts/views/todo_item.js'></script>
+  <script type='text/javascript' src='javascripts/views/todo_list.js'></script>
+  <script type='text/javascript' src='javascripts/views/todo_input.js'></script>
+  <script type='text/javascript' src='javascripts/routers/todo_application.js'></script>
+
+  <link type="text/css" rel="stylesheet" media="all" href="stylesheets/style.css" />
+
+  <!-- Templates -->
+  <script type="text/html" id="todo-input-template">
+    <h2>Create a new Todo item:</h2>
+    <input type="text" />
+    <input type="button" value="Add" />
+  </script>
+
+  <script type="text/html" id="todo-item-template">
+    <section>
+      <input type="checkbox" <%= isFinished ? 'checked="checked"' : '' %>/>
+      <span<%= isFinished ? ' class="finished"' : '' %>><%= text %></span>
+      <span class="remove">&#x2718</span>
+    </section>
+    <section style="display: none;">
+      <input type="text" value="<%= text %>" />
+      <input type="button" value="Save" />
+    </section>
+  </script>
+
+  <script type='text/javascript'>
+    $(function() {
+      var application = new TodoApplication();
+      Backbone.history.start();
+
+      /*var t = new Date().getTime();
+      var a = [];
+
+      for (var i = 0; i < 5000; i++) {
+        a.push(new Todo({ text: "inputText" }));
+      }
+
+      todos.reset(a);
+
+      window.onload = function() {
+        console.log("Duration:", new Date().getTime() - t);
+      };*/
+    });
+  </script>
+</head>
+<body>
+  <h1>Backbone</h1>
+
+  <section id="todo-input">
+  </section>
+
+  <section>
+    <h2>Your Todo list:</h2>
+    <ul id="todos">
+    </ul>
+  </section>
+</body>
+</html>
