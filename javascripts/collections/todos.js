@@ -1,5 +1,9 @@
-Todos = Backbone.Collection.extend({
+/*
+  The Todos collection holds Todo models.
+*/
+var Todos = Backbone.Collection.extend({
   model: Todo
 });
 
-todos = new Todos();
+// Create a new Todos collection.
+var todos = new Todos();

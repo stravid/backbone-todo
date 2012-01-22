@@ -18,20 +18,24 @@
 
   <link type="text/css" rel="stylesheet" media="all" href="stylesheets/style.css" />
 
-  <!-- Templates -->
+  <!-- Template of the input view -->
   <script type="text/html" id="todo-input-template">
     <h2>Create a new Todo item:</h2>
     <input type="text" />
     <input type="button" value="Add" />
   </script>
 
+  <!-- Template of a single todo item -->
   <script type="text/html" id="todo-item-template">
     <section>
+      <!-- Mark the checkbox as checked if the todo item is finished -->
       <input type="checkbox" <%= isFinished ? 'checked="checked"' : '' %>/>
+      <!-- Display the todo items text and add the CSS class finished if it is finished -->
       <span<%= isFinished ? ' class="finished"' : '' %>><%= text %></span>
       <span class="remove">&#x2718</span>
     </section>
     <section style="display: none;">
+      <!-- Display the todo items text -->
       <input type="text" value="<%= text %>" />
       <input type="button" value="Save" />
     </section>
@@ -39,21 +43,9 @@
 
   <script type='text/javascript'>
     $(function() {
+      // Create the todo application
       var application = new TodoApplication();
       Backbone.history.start();
-
-      /*var t = new Date().getTime();
-      var a = [];
-
-      for (var i = 0; i < 5000; i++) {
-        a.push(new Todo({ text: "inputText" }));
-      }
-
-      todos.reset(a);
-
-      window.onload = function() {
-        console.log("Duration:", new Date().getTime() - t);
-      };*/
     });
   </script>
 </head>
